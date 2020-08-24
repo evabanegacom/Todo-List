@@ -109,10 +109,44 @@ h1 {
  color: yellow;
 }
 
+.delete {
+    color: #fff;
+}
+
+button {
+    cursor: pointer;
+    background-color: #E00;
+    border: none;
+    padding: 10px;
+}
+
+form {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+form input {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+form label {
+    color: #fff;
+}
 
 th,
 td {
   color: #fff;
+}
+
+.hidden {
+    display: none;
+}
+
+.options {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 /* table {
