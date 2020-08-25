@@ -28,12 +28,17 @@ function first(div) {
     //projectName.setAttribute('disabled')
     const projectEdit = document.createElement('button')
     projectEdit.className = 'editButton'
-    projectEdit.innerHTML = 'EDIT'
+    projectEdit.innerHTML = 'Edit'
     const projectDelete = document.createElement('button')
     projectDelete.className = 'removeButton'
     projectDelete.innerHTML = 'Remove'
+    const AddProjectItem = document.createElement("button");
+    AddProjectItem.className = "editButton";
+    AddProjectItem.innerHTML = "Add";
 
+    //Add items to project form
     const form = document.createElement('form')
+    form.className = 'hidden'
 
     const formDiv1 = document.createElement('div')
     const label1 = document.createElement('label')
@@ -95,6 +100,12 @@ function first(div) {
    lowinput.setAttribute('value', 'impact1')
    lowinput.setAttribute('name', 'priority')
 
+   const addDiv = document.createElement("div");
+   const addButton = document.createElement("button");
+   addButton.className = 'add'
+   addButton.innerHTML = 'Add to Project'
+
+
 
    // Tables
 
@@ -131,8 +142,9 @@ function first(div) {
    const deleteTable = document.createElement('td')
    tableInput.setAttribute('type', 'checkbox')
    const tableButton = document.createElement('button')
+   tableButton.className = "delete";
    tableButton.innerHTML = 'X'
-   tableButton.class = 'delete'
+   
 
    priorityData.appendChild(tableInput)
    deleteTable.appendChild(tableButton)
@@ -151,6 +163,7 @@ function first(div) {
     projectItems.appendChild(projectName)
     projectItems.appendChild(projectEdit)
     projectItems.appendChild(projectDelete)
+    projectItems.appendChild(AddProjectItem);
     formDiv1.appendChild(label1)
     formDiv1.appendChild(input1)
     formDiv2.appendChild(label2)
@@ -193,6 +206,9 @@ function first(div) {
     div.appendChild(h1)
     div.appendChild(addProject)
     div.appendChild(project)
+
+    addDiv.appendChild(addButton);
+    form.appendChild(addDiv);
 }
 
 function render() {
