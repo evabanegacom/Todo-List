@@ -10,10 +10,12 @@ function first(div) {
     addProject.className = 'input-div'
     const projectInput = document.createElement('input')
     projectInput.className = 'input'
+    projectInput.setAttribute("id", "projectForm");
     projectInput.setAttribute('type', 'text')
     projectInput.setAttribute('placeholder', 'enter a project')
 
     const projectButton = document.createElement('button')
+    projectButton.setAttribute('id', 'addProjectBtn')
     projectButton.className = 'addButton'
     const addIcon = document.createElement('i')
     addIcon.className = 'fas fa-plus'
@@ -34,10 +36,12 @@ function first(div) {
     projectDelete.innerHTML = 'Remove'
     const AddProjectItem = document.createElement("button");
     AddProjectItem.className = "editButton";
+    AddProjectItem.setAttribute('id', "addtaskbtn")
     AddProjectItem.innerHTML = "Add";
 
     //Add items to project form
     const form = document.createElement('form')
+    form.setAttribute('id', 'addTask');
     form.className = 'hidden'
 
     const formDiv1 = document.createElement('div')
@@ -102,6 +106,7 @@ function first(div) {
 
    const addDiv = document.createElement("div");
    const addButton = document.createElement("button");
+   addButton.setAttribute('id', 'submittaskbtn')
    addButton.className = 'add'
    addButton.innerHTML = 'Add to Project'
 
