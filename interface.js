@@ -84,6 +84,7 @@ function first(div) {
    const highinput = document.createElement('input')
    highinput.setAttribute('type', 'radio')
    highinput.setAttribute('id', 'high')
+   highinput.className = 'higher'
    highinput.setAttribute('value', 'impact')
    highinput.setAttribute('name', 'priority')
 
@@ -100,6 +101,7 @@ function first(div) {
 
 
    const lowdiv = document.createElement('div')
+   lowdiv.className = 'lowdiv'
    const lowlabel = document.createElement('label')
    lowlabel.setAttribute('for', 'low')
    lowlabel.innerHTML = 'low'
