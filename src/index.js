@@ -16,6 +16,7 @@ const taskForm = document.querySelector(".tables");
 const input1 = document.querySelector('.input1')
 const input2 = document.querySelector('.input2')
 const input3 = document.querySelector('.input3')
+const tableButton = document.querySelector('.delete')
 
 
 
@@ -34,15 +35,18 @@ addTaskBtn.addEventListener("click", (e) => {
 
 submitTaskBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  const newrow = document.createElement("tr")
   const formTitle = document.createElement("td");
   const formDescription = document.createElement("td");
   const formDate = document.createElement("td");
   formTitle.innerHTML =  input1.value
   formDescription.innerHTML = input2.value
   formDate.innerHTML = input3.value
-  taskForm.appendChild(formTitle)
-  taskForm.appendChild(formDescription)
-  taskForm.appendChild(formDate)
+  
+  newrow.appendChild(formTitle)
+  newrow.appendChild(formDescription)
+  newrow.appendChild(formDate)
+  taskForm.appendChild(newrow)
   form.reset();
   hideForm();
 });
@@ -56,6 +60,11 @@ addProjectBtn.addEventListener("click", (e) => {
   generatedName.className = 'item-input'
   generatedName.innerHTML = projectForm.value
   generatedProjectItems.appendChild(generatedName)
+});
+
+tableButton.addEventListener('click', (e) => {
+  const remove = document.querySelector('td')
+  remove.removeChild('td')
 });
 
 
