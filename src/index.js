@@ -1,6 +1,7 @@
 import render from "../interface";
 // import form from "./forms";
 import "./style.css";
+import { divide } from "lodash";
 
 render();
 // form();
@@ -10,7 +11,8 @@ const addTaskBtn = document.querySelector("#addtaskbtn");
 const submitTaskBtn = document.querySelector("#submittaskbtn");
 const addProjectBtn = document.querySelector("#addProjectBtn");
 const projectEntry = document.querySelector('.addButton')
-const projectValue = document.querySelector('h4')
+const generatedProjectItems = document.querySelector(".Generateditem");
+
 
 
 const hideForm = () => {
@@ -25,9 +27,9 @@ addTaskBtn.addEventListener("click", (e) => {
   showForm();
 });
 
-projectEntry.addEventListener('click', () => {
-  projectValue.innerHTML = projectEntry.value()
-});
+// projectEntry.addEventListener('click', () => {
+//   projectValue.innerHTML = projectEntry.value()
+// });
 
 submitTaskBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -35,8 +37,15 @@ submitTaskBtn.addEventListener("click", (e) => {
   form.reset();
 });
 
+
+
+
 addProjectBtn.addEventListener("click", (e) => {
-  projectForm.value = " ";
+  e.preventDefault();
+  const generatedName = document.createElement("h4");
+  generatedName.className = 'item-input'
+  generatedName.innerHTML = projectForm.value
+  generatedProjectItems.appendChild(generatedName)
 });
 
 
