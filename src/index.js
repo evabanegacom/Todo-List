@@ -63,8 +63,8 @@ addProjectBtn.addEventListener("click", (e) => {
 });
 
 tableButton.addEventListener('click', (e) => {
-  const remove = document.querySelector('td')
-  remove.removeChild('td')
+  const tableRow = e.target.parentElement.parentElement
+  tableRow.remove();
 });
 
 
