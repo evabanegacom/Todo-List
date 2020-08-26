@@ -43,13 +43,14 @@ function first(div) {
     //Add items to project form
     const form = document.createElement('form')
     form.setAttribute('id', 'addTask');
-    form.className = 'hidden'
+    //form.className = 'hidden'
 
     const formDiv1 = document.createElement('div')
     const label1 = document.createElement('label')
     label1.setAttribute('for', 'title')
     label1.innerHTML = 'Title'
     const input1 = document.createElement('input')
+    input1.className = 'input1'
     input1.setAttribute('type', 'text')
     input1.setAttribute('placeholder', 'enter title')
 
@@ -59,6 +60,8 @@ function first(div) {
    label2.innerHTML = 'describe'
    const input2 = document.createElement('input')
    input2.setAttribute('type', 'text')
+   input2.className = 'input2'
+
    input2.setAttribute('placeholder', 'description')
     
    const formDiv3 = document.createElement('div')
@@ -67,6 +70,8 @@ function first(div) {
    label3.innerHTML = 'Due Date'
    const input3 = document.createElement('input')
    input3.setAttribute('type', 'text')
+   input3.className = 'input3'
+
    input3.setAttribute('placeholder', 'mm/dd/yyyy')
 
    const options = document.createElement('div')
@@ -116,6 +121,7 @@ function first(div) {
    // Tables
 
    const table = document.createElement('table')
+   table.className = 'tables'
    const tableHead = document.createElement('thead')
    const tableRow = document.createElement('tr')
    const tableTitle = document.createElement('th')
