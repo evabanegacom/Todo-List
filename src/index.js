@@ -13,7 +13,6 @@ const addProjectBtn = document.querySelector("#addProjectBtn");
 const projectEntry = document.querySelector('.addButton')
 const generatedProjectItems = document.querySelector(".Generateditem");
 const taskForm = document.querySelector(".tables");
-const addtaskForm = document.querySelector(".add");
 const input1 = document.querySelector('.input1')
 const input2 = document.querySelector('.input2')
 const input3 = document.querySelector('.input3')
@@ -35,8 +34,17 @@ addTaskBtn.addEventListener("click", (e) => {
 
 submitTaskBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  //hideForm();
-  //form.reset();
+  const formTitle = document.createElement("td");
+  const formDescription = document.createElement("td");
+  const formDate = document.createElement("td");
+  formTitle.innerHTML =  input1.value
+  formDescription.innerHTML = input2.value
+  formDate.innerHTML = input3.value
+  taskForm.appendChild(formTitle)
+  taskForm.appendChild(formDescription)
+  taskForm.appendChild(formDate)
+  form.reset();
+  hideForm();
 });
 
 
@@ -48,20 +56,6 @@ addProjectBtn.addEventListener("click", (e) => {
   generatedName.className = 'item-input'
   generatedName.innerHTML = projectForm.value
   generatedProjectItems.appendChild(generatedName)
-});
-
-addtaskForm.addEventListener("click", (e) => {
-  e.preventDefault();
-  const formTitle = document.createElement("td");
-  const formDescription = document.createElement("td");
-  const formDate = document.createElement("td");
-  formTitle.innerHTML =  input1.value
-  formDescription.innerHTML = input2.value
-  formDate.innerHTML = input3.value
-  taskForm.appendChild(formTitle)
-  taskForm.appendChild(formDescription)
-  taskForm.appendChild(formDate)
-  //console.log(input1.value)
 });
 
 
