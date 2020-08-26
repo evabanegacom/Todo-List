@@ -23,10 +23,11 @@ function first(div) {
     project.className = 'container'
     const projectItems = document.createElement('div')
     projectItems.className = 'item'
-    const projectName = document.createElement('input')
-    projectName.setAttribute('type', 'text')
-    projectName.setAttribute('value', 'sport')
+    const projectName = document.createElement('h4')
+    // projectName.setAttribute('type', 'text')
+    // projectName.setAttribute('value', 'sport')
     projectName.className = 'item-input'
+    projectName.innerHTML = 'Sport'
     //projectName.setAttribute('disabled')
     const projectEdit = document.createElement('button')
     projectEdit.className = 'editButton'

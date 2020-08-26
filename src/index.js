@@ -34,3 +34,10 @@ addProjectBtn.addEventListener("click", (e) => {
 });
 
 
+const item = (title, description, dueDate, complete, priority) => ({
+  title,
+  description,
+  dueDate,
+  complete,
+  priority
+});
