@@ -9,6 +9,8 @@ const projectForm = document.querySelector("#projectForm");
 const addTaskBtn = document.querySelector("#addtaskbtn");
 const submitTaskBtn = document.querySelector("#submittaskbtn");
 const addProjectBtn = document.querySelector("#addProjectBtn");
+const projectEntry = document.querySelector('.addButton')
+const projectValue = document.querySelector('h4')
 
 
 const hideForm = () => {
@@ -21,6 +23,10 @@ const showForm = () => {
 
 addTaskBtn.addEventListener("click", (e) => {
   showForm();
+});
+
+projectEntry.addEventListener('click', () => {
+  projectValue.innerHTML = projectEntry.value()
 });
 
 submitTaskBtn.addEventListener("click", (e) => {
