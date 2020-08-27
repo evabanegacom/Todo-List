@@ -43,7 +43,7 @@ function first(div) {
   // Add items to project form
   const form = document.createElement('form');
   form.setAttribute('id', 'addTask');
-  // form.className = 'hidden'
+  form.className = 'hidden'
 
   const formDiv1 = document.createElement('div');
   const label1 = document.createElement('label');

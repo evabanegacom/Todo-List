@@ -18,6 +18,13 @@ const input2 = document.querySelector('.input2');
 const input3 = document.querySelector('.input3');
 const tableButton = document.querySelector('.delete');
 const options = document.querySelector('.options');
+const deletetable = document.querySelector('.removeButton')
+
+
+deletetable.addEventListener('click', (e) => {
+  const removing = document.querySelector('.container')
+  removing.remove();
+});
 
 const hideForm = () => {
   form.classList.add('hidden');
@@ -112,17 +119,6 @@ tableButton.addEventListener('click', (e) => {
 options.addEventListener('click', (e) => {
   e.target.id;
 });
-
-// var radios = document.getElementsByName('priority');
-//   for (var i = 0, length = radios.length; i < length; i++) {
-//     if (radios[i].checked) {
-//       // do whatever you want with the checked radio
-//       const alet = alert(radios[i]);
-//       console.log(alet)
-//       // only one radio can be logically checked, don't check the rest
-//       break;
-//     }
-//   }
 
 const item = (title, description, dueDate, complete, priority) => ({
   title,
