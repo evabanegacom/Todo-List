@@ -154,10 +154,12 @@ function first(div) {
   tableButton.className = 'delete';
   tableButton.innerHTML = 'X';
 
+
+
   const generatedProjectItems = document.createElement('div');
   generatedProjectItems.className = 'Generateditem';
 
-  projectItems.appendChild(generatedProjectItems);
+  project.appendChild(generatedProjectItems);
 
   priorityData.appendChild(tableInput);
   deleteTable.appendChild(tableButton);

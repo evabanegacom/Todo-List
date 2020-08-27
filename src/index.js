@@ -20,16 +20,28 @@ const tableButton = document.querySelector('.delete');
 const options = document.querySelector('.options');
 const deletetable = document.querySelector('.removeButton')
 
-
+//   tableButton.addEventListener('click', (e) => {
+//     const tableRow = e.target.parentElement.parentElement;
+//     tableRow.remove();
+//   });
+//   form.reset();
+//   hideForm();
+// });
 
 
 deletetable.addEventListener('click', (e) => {
-  const removing = document.querySelector('.tables')
-  const projectName = document.querySelector('.item-input');
-  deletetable.remove();
-  projectName.remove();
-  addTaskBtn.remove();
-  removing.remove();
+  // const removing = document.querySelector('.tables')
+  // const projectName = document.querySelector('.item-input');
+  const deleteProject = e.target.parentElement;
+  deleteProject.remove();
+  // const removeProject 
+  // console.log(e.target.parentElement)
+  // // console.log(removing)
+  // console.log(projectName)
+  // deletetable.remove();
+  // projectName.remove();
+  // addTaskBtn.remove();
+  // removing.remove();
 });
 
 const hideForm = () => {
@@ -111,6 +123,8 @@ submitTaskBtn.addEventListener('click', (e) => {
 
 addProjectBtn.addEventListener('click', (e) => {
   e.preventDefault();
+  const generatedDiv = document.createElement('div')
+  generatedDiv.className = "item"
   const generatedName = document.createElement('h4');
   const newaddition = document.createElement('button')
   newaddition.innerHTML = 'Add'
@@ -138,9 +152,10 @@ addProjectBtn.addEventListener('click', (e) => {
   newform.appendChild(dateinput)
 
   generatedName.innerHTML = projectForm.value;
-  generatedProjectItems.appendChild(generatedName);
-  generatedProjectItems.appendChild(newaddition);
-  generatedProjectItems.appendChild(newdeletion);
+  generatedProjectItems.appendChild(generatedDiv);
+  generatedDiv.appendChild(generatedName);
+  generatedDiv.appendChild(newaddition)
+  generatedDiv.appendChild(newdeletion)
 
 
 });
