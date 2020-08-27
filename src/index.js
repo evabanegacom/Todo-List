@@ -73,6 +73,19 @@ function getpriority() {
   return "no priority";
 }
 
+function getpriority1() {
+  if (document.querySelector("#high").checked) {
+    return "high";
+  }
+  if (document.querySelector("#medium").checked) {
+    return "medium";
+  }
+  if (document.querySelector("#low").checked) {
+    return "low";
+  }
+  return "no priority";
+}
+
 submitTaskBtn.addEventListener("click", (e) => {
   e.preventDefault();
   const newcheckbox = document.createElement("input");
@@ -232,11 +245,11 @@ addProjectBtn.addEventListener("click", (e) => {
     const titleData = document.createElement("td");
     titleData.innerHTML = titleinput.value;
     const descData = document.createElement("td");
-    descData.innerHTML = "A book about Brittany and preciousssssssss";
+    descData.innerHTML = descinput.value;
     const timeData = document.createElement("td");
     timeData.innerHTML = "Due Date";
     const completedData = document.createElement("td");
-    completedData.innerHTML = "HIGH";
+    completedData.innerHTML = getpriority1();
     completedData.className = "high";
     const priorityData = document.createElement("td");
     const tableInput = document.createElement("input");
