@@ -128,28 +128,45 @@ addProjectBtn.addEventListener('click', (e) => {
   const generatedName = document.createElement('h4');
   const newaddition = document.createElement('button')
   newaddition.innerHTML = 'Add'
+  newaddition.id = 'addtaskbtn'
   const newdeletion = document.createElement('button')
   newdeletion.innerHTML = 'remove'
   newdeletion.className = 'removeButton'
   generatedName.className = 'item-input';
+
+
+
+  newdeletion.addEventListener('click', (e) => {
+   newaddition.remove();
+  });
+
   const newform = document.createElement('form')
+
+  const titlediv = document.createElement('div')
   const titlelabel = document.createElement('label')
   const titleinput = document.createElement('input')
+  titlelabel.innerHTML = 'Title'
 
+  const descdiv = document.createElement('div')
   const desclabel = document.createElement('label')
   const descinput = document.createElement('input')
-
+  desclabel.innerHTML = 'Description'
+  
+  
+  const datediv = document.createElement('div')
   const datelabel = document.createElement('label')
   const dateinput = document.createElement('input')
+  datelabel.innerHTML = 'Due date'
+  
+  generatedName.innerHTML = projectForm.value;
 
-  newform.appendChild(titlelabel)
-  newform.appendChild(titleinput)
 
-  newform.appendChild(desclabel)
-  newform.appendChild(descinput)
+  const newoptions = document.createElement('div')
+  
 
-  newform.appendChild(datelabel)
-  newform.appendChild(dateinput)
+  
+  titlediv.appendChild(titlelabel)
+  titlediv.appendChild(titleinput)
 
   generatedName.innerHTML = projectForm.value;
   generatedProjectItems.appendChild(generatedDiv);
@@ -157,6 +174,15 @@ addProjectBtn.addEventListener('click', (e) => {
   generatedDiv.appendChild(newaddition)
   generatedDiv.appendChild(newdeletion)
 
+  descdiv.appendChild(desclabel)
+  descdiv.appendChild(descinput)
+
+  datediv.appendChild(datelabel)
+  datediv.appendChild(dateinput)
+
+  newform.appendChild(titlediv)
+  newform.appendChild(descdiv)
+  newform.appendChild(datediv)
 
 });
 
