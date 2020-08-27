@@ -7,8 +7,8 @@ render();
 // form();
 const form = document.querySelector("#addTask");
 const projectForm = document.querySelector("#projectForm");
-const addTaskBtn = document.querySelector("#addtaskbtn");
-const submitTaskBtn = document.querySelector("#submittaskbtn");
+const addTaskBtn = document.querySelector(".addtaskbtn");
+const submitTaskBtn = document.querySelector(".submittaskbtn");
 const addProjectBtn = document.querySelector("#addProjectBtn");
 const projectEntry = document.querySelector(".addButton");
 const generatedProjectItems = document.querySelector(".Generateditem");
@@ -120,6 +120,7 @@ submitTaskBtn.addEventListener("click", (e) => {
   hideForm();
 });
 
+
 addProjectBtn.addEventListener("click", (e) => {
   e.preventDefault();
   const generatedDiv = document.createElement("div");
@@ -127,9 +128,9 @@ addProjectBtn.addEventListener("click", (e) => {
   const generatedName = document.createElement("h4");
   const newaddition = document.createElement("button");
   newaddition.innerHTML = "Add";
-  newaddition.id = "addtaskbtn";
+  newaddition.className = "editButton addtaskbtn";
   const newdeletion = document.createElement("button");
-  newdeletion.innerHTML = "remove";
+  newdeletion.innerHTML = "Remove";
   newdeletion.className = "removeButton";
   generatedName.className = "item-input";
 
@@ -158,81 +159,89 @@ addProjectBtn.addEventListener("click", (e) => {
   generatedName.innerHTML = projectForm.value;
 
   const newoptions = document.createElement("div");
-  newoptions.className = 'options'
-
-  const highdiv = document.createElement('div');
-  const highlabel = document.createElement('label');
-  highlabel.setAttribute('for', 'high');
-  highlabel.innerHTML = 'High';
-  const highinput = document.createElement('input');
-  highinput.setAttribute('type', 'radio');
-  highinput.setAttribute('id', 'high');
-  highinput.className = 'higher';
-  highinput.setAttribute('value', 'impact');
-  highinput.setAttribute('name', 'priority');
+  newoptions.className = "options";
 
 
-  const mediumdiv = document.createElement('div');
-  const mediumlabel = document.createElement('label');
-  mediumlabel.setAttribute('for', 'medium');
-  mediumlabel.innerHTML = 'medium';
-  const mediuminput = document.createElement('input');
-  mediuminput.setAttribute('type', 'radio');
-  mediuminput.setAttribute('id', 'medium');
-  mediuminput.setAttribute('value', 'impact2');
-  mediuminput.setAttribute('name', 'priority');
+    const newAddDiv = document.createElement("div");
+    const newAddButton = document.createElement("button");
+    // newAddButton.setAttribute("id", "submittaskbtn");
+     newAddButton.className = "add submittaskbtn";
+     newAddButton.innerHTML = "Add to Project";
 
-  const lowdiv = document.createElement('div');
-  lowdiv.className = 'lowdiv';
-  const lowlabel = document.createElement('label');
-  lowlabel.setAttribute('for', 'low');
-  lowlabel.innerHTML = 'low';
-  const lowinput = document.createElement('input');
-  lowinput.setAttribute('type', 'radio');
-  lowinput.setAttribute('id', 'low');
-  lowinput.id = 'low';
-  lowinput.setAttribute('value', 'impact1');
-  lowinput.setAttribute('name', 'priority');
 
-//TABLES
 
-  const table = document.createElement('table');
-  table.className = 'tables';
-  const tableHead = document.createElement('thead');
-  const tableRow = document.createElement('tr');
-  const tableTitle = document.createElement('th');
-  tableTitle.innerHTML = 'Title';
-  const tableDesc = document.createElement('th');
-  tableDesc.innerHTML = 'Description';
-  const tableDate = document.createElement('th');
-  tableDate.innerHTML = 'Due date';
-  const tableCompleted = document.createElement('th');
-  tableCompleted.innerHTML = 'completed?';
-  const tablePriority = document.createElement('th');
-  tablePriority.innerHTML = 'priority';
-  const tableRemove = document.createElement('th');
-  tableRemove.innerHTML = 'remove';
+  const highdiv = document.createElement("div");
+  const highlabel = document.createElement("label");
+  highlabel.setAttribute("for", "high");
+  highlabel.innerHTML = "High";
+  const highinput = document.createElement("input");
+  highinput.setAttribute("type", "radio");
+  highinput.setAttribute("id", "high");
+  highinput.className = "higher";
+  highinput.setAttribute("value", "impact");
+  highinput.setAttribute("name", "priority");
 
-//TABLE BODY AND DATA
+  const mediumdiv = document.createElement("div");
+  const mediumlabel = document.createElement("label");
+  mediumlabel.setAttribute("for", "medium");
+  mediumlabel.innerHTML = "medium";
+  const mediuminput = document.createElement("input");
+  mediuminput.setAttribute("type", "radio");
+  mediuminput.setAttribute("id", "medium");
+  mediuminput.setAttribute("value", "impact2");
+  mediuminput.setAttribute("name", "priority");
 
-  const tableBody = document.createElement('tbody');
-  const bodyRow = document.createElement('tr');
-  const titleData = document.createElement('td');
-  titleData.innerHTML = 'Task1';
-  const descData = document.createElement('td');
-  descData.innerHTML = 'A book about Brittany and preciousssssssss';
-  const timeData = document.createElement('td');
-  timeData.innerHTML = 'Due Date';
-  const completedData = document.createElement('td');
-  completedData.innerHTML = 'HIGH';
-  completedData.className = 'high';
-  const priorityData = document.createElement('td');
-  const tableInput = document.createElement('input');
-  const deleteTable = document.createElement('td');
-  tableInput.setAttribute('type', 'checkbox');
-  const tableButton = document.createElement('button');
-  tableButton.className = 'delete';
-  tableButton.innerHTML = 'X';
+  const lowdiv = document.createElement("div");
+  lowdiv.className = "lowdiv";
+  const lowlabel = document.createElement("label");
+  lowlabel.setAttribute("for", "low");
+  lowlabel.innerHTML = "low";
+  const lowinput = document.createElement("input");
+  lowinput.setAttribute("type", "radio");
+  lowinput.setAttribute("id", "low");
+  lowinput.id = "low";
+  lowinput.setAttribute("value", "impact1");
+  lowinput.setAttribute("name", "priority");
+
+  //TABLES
+
+  const table = document.createElement("table");
+  table.className = "tables";
+  const tableHead = document.createElement("thead");
+  const tableRow = document.createElement("tr");
+  const tableTitle = document.createElement("th");
+  tableTitle.innerHTML = "Title";
+  const tableDesc = document.createElement("th");
+  tableDesc.innerHTML = "Description";
+  const tableDate = document.createElement("th");
+  tableDate.innerHTML = "Due date";
+  const tableCompleted = document.createElement("th");
+  tableCompleted.innerHTML = "completed?";
+  const tablePriority = document.createElement("th");
+  tablePriority.innerHTML = "priority";
+  const tableRemove = document.createElement("th");
+  tableRemove.innerHTML = "remove";
+
+  //TABLE BODY AND DATA
+
+  const tableBody = document.createElement("tbody");
+  const bodyRow = document.createElement("tr");
+  const titleData = document.createElement("td");
+  titleData.innerHTML = "Task1";
+  const descData = document.createElement("td");
+  descData.innerHTML = "A book about Brittany and preciousssssssss";
+  const timeData = document.createElement("td");
+  timeData.innerHTML = "Due Date";
+  const completedData = document.createElement("td");
+  completedData.innerHTML = "HIGH";
+  completedData.className = "high";
+  const priorityData = document.createElement("td");
+  const tableInput = document.createElement("input");
+  const deleteTable = document.createElement("td");
+  tableInput.setAttribute("type", "checkbox");
+  const tableButton = document.createElement("button");
+  tableButton.className = "delete";
+  tableButton.innerHTML = "X";
 
   highdiv.appendChild(highlabel);
   highdiv.appendChild(highinput);
@@ -243,11 +252,9 @@ addProjectBtn.addEventListener("click", (e) => {
   lowdiv.appendChild(lowlabel);
   lowdiv.appendChild(lowinput);
 
-
   newoptions.appendChild(highdiv);
   newoptions.appendChild(mediumdiv);
   newoptions.appendChild(lowdiv);
-
 
   generatedName.innerHTML = projectForm.value;
 
@@ -264,6 +271,9 @@ addProjectBtn.addEventListener("click", (e) => {
   newform.appendChild(descdiv);
   newform.appendChild(datediv);
   newform.appendChild(newoptions);
+  newform.appendChild(newAddDiv);
+  newAddDiv.appendChild(newAddButton);
+
 
   tableRow.appendChild(tableTitle);
   tableRow.appendChild(tableDesc);
@@ -284,11 +294,12 @@ addProjectBtn.addEventListener("click", (e) => {
 
   generatedProjectItems.appendChild(generatedDiv);
   generatedDiv.appendChild(generatedName);
-  generatedDiv.appendChild(newaddition);
   generatedDiv.appendChild(newdeletion);
+  generatedDiv.appendChild(newaddition);
   generatedDiv.appendChild(newform);
   generatedDiv.appendChild(table);
 });
+
 
 tableButton.addEventListener("click", (e) => {
   const tableRow = e.target.parentElement.parentElement;

@@ -36,8 +36,8 @@ function first(div) {
   projectDelete.className = 'removeButton';
   projectDelete.innerHTML = 'Remove';
   const AddProjectItem = document.createElement('button');
-  AddProjectItem.className = 'editButton';
-  AddProjectItem.setAttribute('id', 'addtaskbtn');
+  AddProjectItem.className = "editButton addtaskbtn";
+  // AddProjectItem.setAttribute('id', 'addtaskbtn');
   AddProjectItem.innerHTML = 'Add';
 
   // Add items to project form
@@ -112,8 +112,8 @@ function first(div) {
 
   const addDiv = document.createElement('div');
   const addButton = document.createElement('button');
-  addButton.setAttribute('id', 'submittaskbtn');
-  addButton.className = 'add';
+  // addButton.setAttribute('id', 'submittaskbtn');
+  addButton.className = "add submittaskbtn";
   addButton.innerHTML = 'Add to Project';
 
   // Tables
