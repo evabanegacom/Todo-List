@@ -21,8 +21,14 @@ const options = document.querySelector('.options');
 const deletetable = document.querySelector('.removeButton')
 
 
+
+
 deletetable.addEventListener('click', (e) => {
-  const removing = document.querySelector('.container')
+  const removing = document.querySelector('.tables')
+  const projectName = document.querySelector('.item-input');
+  deletetable.remove();
+  projectName.remove();
+  addTaskBtn.remove();
   removing.remove();
 });
 
@@ -106,9 +112,37 @@ submitTaskBtn.addEventListener('click', (e) => {
 addProjectBtn.addEventListener('click', (e) => {
   e.preventDefault();
   const generatedName = document.createElement('h4');
+  const newaddition = document.createElement('button')
+  newaddition.innerHTML = 'Add'
+  const newdeletion = document.createElement('button')
+  newdeletion.innerHTML = 'remove'
+  newdeletion.className = 'removeButton'
   generatedName.className = 'item-input';
+  const newform = document.createElement('form')
+  const titlelabel = document.createElement('label')
+  const titleinput = document.createElement('input')
+
+  const desclabel = document.createElement('label')
+  const descinput = document.createElement('input')
+
+  const datelabel = document.createElement('label')
+  const dateinput = document.createElement('input')
+
+  newform.appendChild(titlelabel)
+  newform.appendChild(titleinput)
+
+  newform.appendChild(desclabel)
+  newform.appendChild(descinput)
+
+  newform.appendChild(datelabel)
+  newform.appendChild(dateinput)
+
   generatedName.innerHTML = projectForm.value;
   generatedProjectItems.appendChild(generatedName);
+  generatedProjectItems.appendChild(newaddition);
+  generatedProjectItems.appendChild(newdeletion);
+
+
 });
 
 tableButton.addEventListener('click', (e) => {
