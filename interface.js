@@ -36,14 +36,14 @@ function first(div) {
   projectDelete.className = 'removeButton';
   projectDelete.innerHTML = 'Remove';
   const AddProjectItem = document.createElement('button');
-  AddProjectItem.className = "editButton addtaskbtn";
+  AddProjectItem.className = 'editButton addtaskbtn';
   // AddProjectItem.setAttribute('id', 'addtaskbtn');
   AddProjectItem.innerHTML = 'Add';
 
   // Add items to project form
   const form = document.createElement('form');
   form.setAttribute('id', 'addTask');
-  form.className = 'hidden'
+  form.className = 'hidden';
 
   const formDiv1 = document.createElement('div');
   const label1 = document.createElement('label');
@@ -113,7 +113,7 @@ function first(div) {
   const addDiv = document.createElement('div');
   const addButton = document.createElement('button');
   // addButton.setAttribute('id', 'submittaskbtn');
-  addButton.className = "add submittaskbtn";
+  addButton.className = 'add submittaskbtn';
   addButton.innerHTML = 'Add to Project';
 
   // Tables
@@ -154,8 +154,6 @@ function first(div) {
   tableButton.className = 'delete';
   tableButton.innerHTML = 'X';
 
-
-
   const generatedProjectItems = document.createElement('div');
   generatedProjectItems.className = 'Generateditem';
 
@@ -170,7 +168,7 @@ function first(div) {
   addProject.appendChild(projectInput);
   addProject.appendChild(projectButton);
   projectItems.appendChild(projectName);
-  //projectItems.appendChild(projectEdit);
+  // projectItems.appendChild(projectEdit);
   projectItems.appendChild(projectDelete);
   projectItems.appendChild(AddProjectItem);
   formDiv1.appendChild(label1);
