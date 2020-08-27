@@ -136,6 +136,10 @@ form input {
   margin-bottom: 20px;
 }
 
+.no-priority {
+    color: #fff;
+}
+
 form label {
     color: #fff;
 }

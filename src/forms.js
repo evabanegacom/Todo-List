@@ -12,10 +12,8 @@
 //         form.classList.remove('hidden');
 //     }
 
-
-    
 // });
 
 // export default form;
 
-//hide form, show form, save, add button, radio buttons, clear from forms
+// hide form, show form, save, add button, radio buttons, clear from forms
