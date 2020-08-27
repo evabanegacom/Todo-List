@@ -258,6 +258,16 @@ addProjectBtn.addEventListener("click", (e) => {
     const tableButton = document.createElement("button");
     tableButton.className = "delete";
     tableButton.innerHTML = "X";
+    const newcheckbox = document.createElement("input");
+    newcheckbox.setAttribute("type", "checkbox");
+    priorityData.appendChild(newcheckbox)
+    deleteTable.appendChild(tableButton)
+
+    deleteTable.addEventListener("click", (e) => {
+      const tableRow = e.target.parentElement.parentElement;
+      tableRow.remove();
+      newform.reset();
+    });
 
     tableRow.appendChild(tableTitle);
     tableRow.appendChild(tableDesc);
