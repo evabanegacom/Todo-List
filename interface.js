@@ -29,9 +29,9 @@ function first(div) {
   projectName.className = 'item-input';
   projectName.innerHTML = 'Sport';
   // projectName.setAttribute('disabled')
-  const projectEdit = document.createElement('button');
-  projectEdit.className = 'editButton';
-  projectEdit.innerHTML = 'Edit';
+  // const projectEdit = document.createElement('button');
+  // projectEdit.className = 'editButton';
+  // projectEdit.innerHTML = 'Edit';
   const projectDelete = document.createElement('button');
   projectDelete.className = 'removeButton';
   projectDelete.innerHTML = 'Remove';
@@ -168,7 +168,7 @@ function first(div) {
   addProject.appendChild(projectInput);
   addProject.appendChild(projectButton);
   projectItems.appendChild(projectName);
-  projectItems.appendChild(projectEdit);
+  //projectItems.appendChild(projectEdit);
   projectItems.appendChild(projectDelete);
   projectItems.appendChild(AddProjectItem);
   formDiv1.appendChild(label1);
