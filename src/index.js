@@ -1,4 +1,3 @@
-import { divide } from 'lodash';
 import render from '../interface';
 import './style.css';
 
@@ -204,7 +203,7 @@ addProjectBtn.addEventListener('click', (e) => {
   newAddButton.addEventListener('click', (e) => {
     e.preventDefault();
     projectForm.value = '';
-    // document.querySelector('#low').checked = false
+
     function getpriority1() {
       if (highinput.checked) {
         return 'high';
