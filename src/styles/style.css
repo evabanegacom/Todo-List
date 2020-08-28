@@ -11,8 +11,6 @@
 }
 
 body {
- 
-
   margin-top: 25vh;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-weight: 300;
@@ -23,7 +21,6 @@ body {
 
 .header {
   position: absolute;
-  color: #2c324c;
   top: 3%;
   left: 57.5%;
   transform: translate(-50%);
@@ -347,11 +344,11 @@ body {
   from {
     top: 0;
   }
+
   to {
     top: 200px;
   }
 }
-
 
 .background,
 .background2 {
@@ -361,13 +358,10 @@ body {
   width: 86%;
   height: 86vh;
   z-index: -100;
-  /* background-color: #fff; */
-   background: url("https://images.pexels.com/photos/3299/postit-scrabble-to-do.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background: url("https://images.pexels.com/photos/3299/postit-scrabble-to-do.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
   background-position: top;
-  /* background
-  background-color: transparent; */
 }
 
 .background2 {
