@@ -151,7 +151,7 @@ addProjectBtn.addEventListener("click", (e) => {
   highlabel.innerHTML = "High";
   const highinput = document.createElement("input");
   highinput.setAttribute("type", "radio");
-  // highinput.setAttribute('id', 'high');
+  highinput.setAttribute('id', 'high');
   highinput.className = "high";
   highinput.setAttribute("value", "impact");
   highinput.setAttribute("name", "priority");
@@ -162,7 +162,7 @@ addProjectBtn.addEventListener("click", (e) => {
   mediumlabel.innerHTML = "medium";
   const mediuminput = document.createElement("input");
   mediuminput.setAttribute("type", "radio");
-  // mediuminput.setAttribute('id', 'medium');
+  mediuminput.setAttribute('id', 'medium');
   mediuminput.setAttribute("value", "impact2");
   mediuminput.setAttribute("name", "priority");
 
@@ -173,8 +173,7 @@ addProjectBtn.addEventListener("click", (e) => {
   lowlabel.innerHTML = "low";
   const lowinput = document.createElement("input");
   lowinput.setAttribute("type", "radio");
-  // lowinput.setAttribute('id', 'low');
-  // lowinput.id = 'low';
+  lowinput.setAttribute('id', 'low');
   lowinput.className = "low";
   lowinput.setAttribute("value", "impact1");
   lowinput.setAttribute("name", "priority");
@@ -265,29 +264,47 @@ addProjectBtn.addEventListener("click", (e) => {
     tableRow.appendChild(tablePriority);
     tableRow.appendChild(tableRemove);
     tableHead.appendChild(tableRow);
-    bodyRow.appendChild(titleData);
-    bodyRow.appendChild(descData);
-    bodyRow.appendChild(timeData);
-    bodyRow.appendChild(priorityData);
-    bodyRow.appendChild(completedData);
-    bodyRow.appendChild(deleteTable);
-    tableBody.appendChild(bodyRow);
+    // bodyRow.appendChild(titleData);
+    // bodyRow.appendChild(descData);
+    // bodyRow.appendChild(timeData);
+    // bodyRow.appendChild(priorityData);
+    // bodyRow.appendChild(completedData);
+    // bodyRow.appendChild(deleteTable);
+    // tableBody.appendChild(bodyRow);
     table.appendChild(tableHead);
     table.appendChild(tableBody);
     generatedDiv.appendChild(table);
+
 
     const result = new item(
       titleData.innerHTML,
       descData.innerHTML,
       timeData.innerHTML,
-      completedData.innerHTML
+      completedData.innerHTML,
+      
     );
 
+
+
     items.push(result);
-    console.log(items);
     localStorage.setItem("items", JSON.stringify(items));
+// while (parent.firstChild) {
+//   parent.firstChild.remove();
+// }
+    console.log(tableBody.children)
+    // console.log(tableBody.children[0])
+    // for (let i = 0; i < tableBody.length; i += 1) {
+    //   tableBody.removeChild(tableBody.childNodes[i]);
+    // }
+  
+      // tableBody.children.forEach(item => item.remove()) 
+  
+
+    
+  
 
     items.forEach((item) => {
+       
       const storageRow = document.createElement("tr");
       const storageTitle = document.createElement("td");
       storageTitle.innerHTML = item.title;
@@ -295,6 +312,7 @@ addProjectBtn.addEventListener("click", (e) => {
       storageDesc.innerHTML = item.description;
       const storageDate = document.createElement("td");
       storageDate.innerHTML = item.dueDate;
+
       const storagePriority = document.createElement("td");
       storagePriority.innerHTML = item.complete;
       const storageCheckbox = document.createElement("td");
@@ -306,16 +324,27 @@ addProjectBtn.addEventListener("click", (e) => {
       storageTableButton.innerHTML = "X";
 
 
+       if (storagePriority.innerHTML === "high") {
+         storagePriority.classList.add("high");
+       } else if (storagePriority.innerHTML === "medium") {
+         storagePriority.classList.add("medium");
+       } else if (storagePriority.innerHTML === "low") {
+         storagePriority.classList.add("low");
+       } else {
+         storagePriority.classList.add("no-priority");
+       }
+    
 
-
-
-
-
-
-    })
-
-
-
+      storageRow.appendChild(storageTitle);
+      storageRow.appendChild(storageDesc);
+      storageRow.appendChild(storageDate);
+      storageCheckbox.appendChild(storageCheckInput);
+      storageRow.appendChild(storageCheckbox);
+      storageRow.appendChild(storagePriority);
+      storageDeleteTable.appendChild(storageTableButton);
+      storageRow.appendChild(storageTableButton);
+      tableBody.appendChild(storageRow);
+    });
   });
 
   // TABLE BODY AND DATA
@@ -363,10 +392,15 @@ tableButton.addEventListener("click", (e) => {
   tableRow.remove();
 });
 
-function item(title, description, dueDate, complete = "", priority = "") {
+function item(title, description, dueDate, complete = "", priority) {
   (this.title = title),
     (this.description = description),
     (this.dueDate = dueDate),
     (this.complete = complete),
     (this.priority = priority);
 }
+// function project(title) {
+//   (this.title = title)
+// }
+
+
