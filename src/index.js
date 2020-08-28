@@ -203,6 +203,7 @@ addProjectBtn.addEventListener('click', (e) => {
   newAddButton.addEventListener('click', (e) => {
     e.preventDefault();
     projectForm.value = '';
+    newform.classList.add("hidden");;
 
     function getpriority1() {
       if (highinput.checked) {
