@@ -27,7 +27,7 @@
     <img src="https://banner2.cleanpng.com/20180605/ekx/kisspng-javascript-responsive-web-design-programmer-5b16edb4e41b02.4855169215282293009343.jpg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Restaurant Page</h3>
+  <h3 align="center">To Do List</h3>
 
   <p align="center">
     This is the restaurant page project from the Odin project's Javascript curriculum
@@ -53,15 +53,15 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Screenshot](https://share.getcloudapp.com/4gu9e44D)
+<p align="center">
+    <img src="GIF.gif" alt="gif" >
+</p>
 
 
 In this project, we were asked to build a To Do List. This project was designed for practising OOP and implementing Single Responsibility and to avoid using Tightly Coupled Objects.  
 
 ## LIVE DEMO
  [Link to live demo](https://heuristic-northcutt-d49d33.netlify.app/) 
-
-
 
 <!-- BUILD WITH -->
 ## Built With
