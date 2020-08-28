@@ -1,0 +1,56 @@
+{
+  "name": "Todo-List",
+  "version": "1.0.0",
+  "description": "Activities List",
+  "main": "bundle.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production";
+    ,
+    "dev": "webpack --mode development";
+  }
+  ,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evabanegacom/Todo-List.git";
+  }
+  ,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+
+  }
+  ,
+  "homepage": "https://github.com/evabanegacom/Todo-List#readme",
+  "devDependencies": {
+    "css-loader": "^4.2.1",
+    "eslint": "^6.8.0";
+    ,
+    "eslint-config-airbnb-base": "^14.1.0";
+    ,
+    "eslint-plugin-import": "^2.20.2";
+    ,
+    "file-loader": "^6.0.0";
+    ,
+    "style-loader": "^1.2.1";
+    ,
+    "stylelint": "^13.3.3";
+    ,
+    "stylelint-config-standard": "^20.0.0";
+    ,
+    "stylelint-csstree-validator": "^1.8.0";
+    ,
+    "stylelint-scss": "^3.17.2";
+    ,
+    "webpack": "^4.44.1";
+    ,
+    "webpack-cli": "^3.3.12";
+  }
+  ,
+  "dependencies": {
+    "lodash": "^4.17.19",
+    "swup": "^2.0.11";
+  }
+}

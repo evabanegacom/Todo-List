@@ -1,10 +1,8 @@
 import { divide } from 'lodash';
 import render from '../interface';
-// import form from "./forms";
 import './style.css';
 
 render();
-// form();
 const form = document.querySelector('#addTask');
 const projectForm = document.querySelector('#projectForm');
 const addTaskBtn = document.querySelector('.addtaskbtn');
@@ -19,27 +17,9 @@ const tableButton = document.querySelector('.delete');
 const options = document.querySelector('.options');
 const deletetable = document.querySelector('.removeButton');
 
-//   tableButton.addEventListener('click', (e) => {
-//     const tableRow = e.target.parentElement.parentElement;
-//     tableRow.remove();
-//   });
-//   form.reset();
-//   hideForm();
-// });
-
 deletetable.addEventListener('click', (e) => {
-  // const removing = document.querySelector('.tables')
-  // const projectName = document.querySelector('.item-input');
   const deleteProject = e.target.parentElement;
   deleteProject.remove();
-  // const removeProject
-  // console.log(e.target.parentElement)
-  // // console.log(removing)
-  // console.log(projectName)
-  // deletetable.remove();
-  // projectName.remove();
-  // addTaskBtn.remove();
-  // removing.remove();
 });
 
 const hideForm = () => {
@@ -56,7 +36,6 @@ addTaskBtn.addEventListener('click', (e) => {
 
 options.addEventListener('click', (e) => {
   const target = e.target.id;
-  // formpriority.appendChild(target)
 });
 
 function getpriority() {
@@ -133,7 +112,6 @@ addProjectBtn.addEventListener('click', (e) => {
   newdeletion.className = 'removeButton';
   generatedName.className = 'item-input';
 
-
   newdeletion.addEventListener('click', (e) => {
     const deleteProject = e.target.parentElement;
     deleteProject.remove();
@@ -164,7 +142,6 @@ addProjectBtn.addEventListener('click', (e) => {
 
   const newAddDiv = document.createElement('div');
   const newAddButton = document.createElement('button');
-  // newAddButton.setAttribute("id", "submittaskbtn");
   newAddButton.className = 'add submittaskbtn';
   newAddButton.innerHTML = 'Add to Project';
 
@@ -174,7 +151,7 @@ addProjectBtn.addEventListener('click', (e) => {
   highlabel.innerHTML = 'High';
   const highinput = document.createElement('input');
   highinput.setAttribute('type', 'radio');
-  highinput.setAttribute('id', 'high');
+  // highinput.setAttribute('id', 'high');
   highinput.className = 'high';
   highinput.setAttribute('value', 'impact');
   highinput.setAttribute('name', 'priority');
@@ -185,7 +162,7 @@ addProjectBtn.addEventListener('click', (e) => {
   mediumlabel.innerHTML = 'medium';
   const mediuminput = document.createElement('input');
   mediuminput.setAttribute('type', 'radio');
-  mediuminput.setAttribute('id', 'medium');
+  // mediuminput.setAttribute('id', 'medium');
   mediuminput.setAttribute('value', 'impact2');
   mediuminput.setAttribute('name', 'priority');
 
@@ -196,8 +173,9 @@ addProjectBtn.addEventListener('click', (e) => {
   lowlabel.innerHTML = 'low';
   const lowinput = document.createElement('input');
   lowinput.setAttribute('type', 'radio');
-  lowinput.setAttribute('id', 'low');
-  lowinput.id = 'low';
+  // lowinput.setAttribute('id', 'low');
+  // lowinput.id = 'low';
+  lowinput.className = 'low';
   lowinput.setAttribute('value', 'impact1');
   lowinput.setAttribute('name', 'priority');
 
@@ -221,13 +199,24 @@ addProjectBtn.addEventListener('click', (e) => {
   newaddition.addEventListener('click', (e) => {
     e.preventDefault();
     newform.classList.remove('hidden');
-
   });
 
   newAddButton.addEventListener('click', (e) => {
     e.preventDefault();
-    // const inputdiv = document.querySelector('.input-div');
-    // inputdiv.reset();
+    projectForm.value = '';
+    // document.querySelector('#low').checked = false
+    function getpriority1() {
+      if (highinput.checked) {
+        return 'high';
+      }
+      if (mediuminput.checked) {
+        return 'medium';
+      }
+      if (lowinput.checked) {
+        return 'low';
+      }
+      return 'no priority';
+    }
 
     const tableBody = document.createElement('tbody');
     const bodyRow = document.createElement('tr');
@@ -238,7 +227,7 @@ addProjectBtn.addEventListener('click', (e) => {
     const timeData = document.createElement('td');
     timeData.innerHTML = dateinput.value;
     const completedData = document.createElement('td');
-    completedData.innerHTML = getpriority();
+    completedData.innerHTML = getpriority1();
     completedData.className = 'high';
     const priorityData = document.createElement('td');
     const tableInput = document.createElement('input');
@@ -257,6 +246,16 @@ addProjectBtn.addEventListener('click', (e) => {
       const tableRow = e.target.parentElement.parentElement;
       tableRow.remove();
     });
+
+    if (completedData.innerHTML === 'high') {
+      completedData.classList.add('high');
+    } else if (completedData.innerHTML === 'medium') {
+      completedData.classList.add('medium');
+    } else if (completedData.innerHTML === 'low') {
+      completedData.classList.add('low');
+    } else {
+      completedData.classList.add('no-priority');
+    }
 
     tableRow.appendChild(tableTitle);
     tableRow.appendChild(tableDesc);
