@@ -110,7 +110,7 @@ const task = (() => {
   const deleteList = () => {
     const deleteItem = document.querySelector('.removeList');
     deleteItem.addEventListener('click', () => {
-      const currentList = lists.switchListKey();
+      const currentList = lists.switchList();
       const listElement = document.querySelectorAll('.list-name');
       listElement.forEach(list => {
         const alertMessage = document.querySelector('.task-deletion-alert');
@@ -168,7 +168,7 @@ const task = (() => {
 
   const renderListTasks = () => {
     const newLists = document.querySelectorAll('.list-name');
-    const currentList = lists.switchListKey().key;
+    const currentList = lists.switchList().key;
     newLists.forEach(list => list.addEventListener('click', (e) => {
       const currentKey = e.target.textContent;
       const getLocalStorageTasks = JSON.parse(localStorage.getItem(currentKey));
@@ -186,7 +186,7 @@ const task = (() => {
   };
 
   createButton.addEventListener('click', () => {
-    if (lists.switchListKey().key !== '') {
+    if (lists.switchList().key !== '') {
       const popUpForm = document.querySelector('.pop-up-form');
       const backgroundBlur = document.querySelector('.background-blur');
       popUpForm.style.display = 'block';
@@ -206,7 +206,7 @@ const task = (() => {
     if (storage === '') {
       storage = [];
     }
-    const currentKey = lists.switchListKey().key;
+    const currentKey = lists.switchList().key;
     storage[currentKey].push(newTask);
     localStorage.setItem(currentKey, JSON.stringify(storage[currentKey]));
     const getLocalStorageTasks = JSON.parse(localStorage.getItem(currentKey));
