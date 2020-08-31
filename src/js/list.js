@@ -1,6 +1,7 @@
 /* eslint-disable */
 import task from "./todos";
 import localStorageList from "../logic/localStorage";
+import objectValues from "../logic/objectValues";
 
 /* eslint-enable */
 
@@ -37,14 +38,7 @@ const lists = (() => {
     listItems.forEach((item) => item.remove());
   };
 
-  function objectValues() {
-    const storageObject = localStorageList();
-    const storageObjectMap = Object.keys(storageObject).map((key) => {
-      const allTasks = storageObject[key];
-      return allTasks;
-    });
-    return storageObjectMap;
-  }
+  objectValues();
 
   const render = () => {
     const defaultList = document.createElement('li');

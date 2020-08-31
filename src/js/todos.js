@@ -76,45 +76,7 @@ const task = (() => {
           const form = document.querySelector(".pop-up-form");
           form.style.display = "none";
 
-          editTask.addEventListener("click", (e) => {
-            form.style.display = "block";
-            const titleTaskEdit = document.querySelector("#list-tilte");
-            titleTaskEdit.value = titleTask.textContent;
-            const descriptionTaskEdit = document.querySelector(
-              "#list-description"
-            );
-            descriptionTaskEdit.value = descriptionTask.textContent;
-            const priorityTaskEdit = document.querySelector(
-              ".priority-radio-button"
-            );
-            priorityTaskEdit.value = priorityTask.textContent;
-            const dateTaskEdit = document.querySelector("#list-date");
-            dateTaskEdit.value = dateTask.textContent;
-
-            const obj = {
-              title: titleTask.textContent,
-              description: descriptionTask.textContent,
-              date: dateTask.textContent,
-              priority: priorityTask.textContent,
-            };
-            console.log(obj);
-            const newArr = [];
-            const entireList = lists.updateLocalStorage();
-            const keys = Object.keys(entireList);
-            console.log(keys);
-
-            Object.keys(entireList).forEach((key) => {
-              entireList[key].forEach((value) => {
-                newArr.push(value);
-              });
-            });
-            console.log(newArr);
-
-            // setTimeout(() => {
-            //     console.log(lists.updateLocalStorage());
-
-            //   }, 3000);
-          });
+          
         }
       }
     }
