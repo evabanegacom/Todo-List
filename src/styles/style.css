@@ -205,7 +205,7 @@ body {
   color: #2c324c;
 }
 
-.delete-tast {
+.delete-task {
   position: absolute;
   cursor: pointer;
   color: rgb(99, 36, 36);
