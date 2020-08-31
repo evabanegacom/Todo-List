@@ -1,34 +1,39 @@
 /* eslint-disable */
-import task from './todos';
+import task from "./todos";
 /* eslint-enable */
 
 const lists = (() => {
-  const lists = document.querySelector('.task-list');
-  const form = document.querySelector('#form');
-  const popupForm = document.querySelector('.list-alert');
-  const allListItems = document.querySelectorAll('.list-name');
+  const lists = document.querySelector(".task-list");
+  const form = document.querySelector("#form");
+  const popupForm = document.querySelector(".list-alert");
+  const allListItems = document.querySelectorAll(".list-name");
   const localStorageTask = {};
-  const currentKey = { key: '' };
+  const currentKey = { key: "" };
 
   const switchList = () => {
-    const listTitle = document.querySelector('.list-title');
-    const allListItems = document.querySelectorAll('.list-name');
-    allListItems.forEach(list => list.addEventListener('click', (e) => {
-      const key = e.target.textContent;
-      currentKey.key = key;
-      listTitle.textContent = key;
-      task.renderTasks();
-    }));
+    const listTitle = document.querySelector(".list-title");
+    const allListItems = document.querySelectorAll(".list-name");
+    console.log(allListItems);
+    allListItems.forEach((list) =>
+      list.addEventListener("click", (e) => {
+        const key = e.target.textContent;
+        currentKey.key = key;
+        listTitle.textContent = key;
+        task.renderTasks();
+      })
+    );
     return currentKey;
   };
 
-  allListItems.forEach(list => list.addEventListener('click', () => {
-    switchList();
-  }));
+  allListItems.forEach((list) =>
+    list.addEventListener("click", () => {
+      switchList();
+    })
+  );
 
   const localStorageList = () => {
     const object = Object.keys(localStorage).reduce((obj, str) => {
-      if (str !== 'loglevel:webpack-dev-server') {
+      if (str !== "loglevel:webpack-dev-server") {
         obj[str] = JSON.parse([localStorage.getItem(str)]) || [];
       }
       return obj;
@@ -37,15 +42,30 @@ const lists = (() => {
   };
 
   const clearList = () => {
-    const listItems = document.querySelectorAll('.list-name');
-    listItems.forEach(item => item.remove());
+    const listItems = document.querySelectorAll(".list-name");
+    listItems.forEach((item) => item.remove());
   };
 
+  function objectValues() {
+    const storageObject = localStorageList();
+    const storageObjectMap = Object.keys(storageObject).map((key) => {
+      const allTasks = storageObject[key];
+      return allTasks;
+    });
+    return storageObjectMap;
+  }
+
   const render = () => {
+    const defaultList = document.createElement("li");
+
+    defaultList.setAttribute("class", "default-list");
+    defaultList.textContent = "All Tasks";
+    lists.appendChild(defaultList);
+
     clearList();
-    Object.keys(localStorageList()).forEach(key => {
-      const listItems = document.createElement('li');
-      listItems.setAttribute('class', 'list-name');
+    Object.keys(localStorageList()).forEach((key) => {
+      const listItems = document.createElement("li");
+      listItems.setAttribute("class", "list-name");
       listItems.textContent = key;
       lists.appendChild(listItems);
     });
@@ -57,41 +77,42 @@ const lists = (() => {
   render();
 
   const successAlert = (list) => {
-    const listCreatedAlert = document.querySelector('.task-created-alert');
-    listCreatedAlert.style.display = 'block';
+    const listCreatedAlert = document.querySelector(".task-created-alert");
+    listCreatedAlert.style.display = "block";
     listCreatedAlert.textContent = `${list} list successfully created`;
 
     setTimeout(() => {
-      listCreatedAlert.textContent = '';
-      listCreatedAlert.style.display = 'none';
+      listCreatedAlert.textContent = "";
+      listCreatedAlert.style.display = "none";
     }, 5000);
   };
 
   const newListItems = (e) => {
     e.preventDefault();
     const listItem = e.target.lists.value;
-    if (!(listItem === '')) {
+    if (!(listItem === "")) {
       localStorageTask[listItem] = [];
       localStorage.setItem(listItem, JSON.stringify([]));
-      const listItems = document.createElement('li');
-      listItems.setAttribute('class', 'list-name');
+      const listItems = document.createElement("li");
+      listItems.setAttribute("class", "list-name");
       listItems.textContent = listItem;
       lists.appendChild(listItems);
       localStorageList();
       switchList();
       successAlert(listItem);
     } else {
-      popupForm.style.display = 'block';
+      popupForm.style.display = "block";
       setTimeout(() => {
-        popupForm.style.display = 'none';
+        popupForm.style.display = "none";
       }, 3000);
     }
-    e.target.lists.value = '';
+    e.target.lists.value = "";
   };
 
-  form.addEventListener('submit', newListItems);
+  form.addEventListener("submit", newListItems);
 
   return {
+    objectValues,
     switchList,
     updateLocalStorage,
     localStorageTask,
