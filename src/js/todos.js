@@ -1,16 +1,10 @@
 /* eslint-disable */
 import lists from "./list";
+import Task from "../logic/taskLogic";
 /* eslint-enable */
 
 const task = (() => {
-  class Task {
-    constructor(title, description, date, priority) {
-      this.title = title;
-      this.description = description;
-      this.date = date;
-      this.priority = priority;
-    }
-  }
+  Task;
 
   const createButton = document.querySelector(".add-new-task-button");
   const form = document.querySelector("#task-form");
