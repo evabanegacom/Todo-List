@@ -73,7 +73,7 @@ This project was built using these technologies.
 
 <!-- ABOUT THE PROJECT -->
 ## Getting Started
-- To get a local copy up and running follow these simple example steps.
+- To get a local copy up and running follow these simple steps.
 
 #### Clone the repository to run the app.
 
