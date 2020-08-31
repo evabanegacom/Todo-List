@@ -1,4 +1,4 @@
-import localStorageList from "./localStorage";
+import localStorageList from './localStorage';
 
 function objectValues() {
   const storageObject = localStorageList();
