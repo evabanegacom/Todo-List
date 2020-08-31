@@ -24,40 +24,48 @@ const task = (() => {
     });
   };
 
+ 
+
+
+
   const renderTasks = (tasks = '') => {
     clearAllTasks();
     if (tasks !== '') {
       const value = Object.values(tasks);
       for (let i = 0; i < value.length; i += 1) {
         if (value !== undefined) {
-          const todoBody = document.querySelector('.todo-body');
-          const divTasks = document.createElement('div');
-          divTasks.setAttribute('class', 'tasks');
-          const divTask = document.createElement('div');
-          divTask.setAttribute('class', 'task');
-          const checkboxTask = document.createElement('input');
-          checkboxTask.setAttribute('type', 'checkbox');
-          checkboxTask.setAttribute('id', `task-${i}`);
-          const labelTask = document.createElement('label');
-          labelTask.setAttribute('for', `task-${i}`);
-          const spanTask = document.createElement('span');
-          spanTask.setAttribute('class', 'custom-checkbox');
-          const descriptionTask = document.createElement('p');
-          const titleTask = document.createElement('p');
-          titleTask.setAttribute('class', 'title-task');
+          const todoBody = document.querySelector(".todo-body");
+          const divTasks = document.createElement("div");
+          divTasks.setAttribute("class", "tasks");
+          const divTask = document.createElement("div");
+          divTask.setAttribute("class", "task");
+          const checkboxTask = document.createElement("input");
+          checkboxTask.setAttribute("type", "checkbox");
+          checkboxTask.setAttribute("id", `task-${i}`);
+          const labelTask = document.createElement("label");
+          labelTask.setAttribute("for", `task-${i}`);
+          const spanTask = document.createElement("span");
+          spanTask.setAttribute("class", "custom-checkbox");
+          const descriptionTask = document.createElement("p");
+          const titleTask = document.createElement("p");
+          titleTask.setAttribute("class", "title-task");
           titleTask.textContent = value[i].title;
-          descriptionTask.setAttribute('class', 'description-task');
+          descriptionTask.setAttribute("class", "description-task");
           descriptionTask.textContent = value[i].description;
-          const dateTask = document.createElement('p');
+          const dateTask = document.createElement("p");
           dateTask.textContent = value[i].date;
-          dateTask.setAttribute('class', 'date');
+          dateTask.setAttribute("class", "date");
 
-          const priorityTask = document.createElement('p');
+          const priorityTask = document.createElement("p");
           priorityTask.textContent = value[i].priority;
-          priorityTask.setAttribute('class', 'priority');
-          const trashTask = document.createElement('p');
-          trashTask.setAttribute('class', 'delete-tast');
-          trashTask.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
+          priorityTask.setAttribute("class", "priority");
+          const editTask = document.createElement("p");
+          editTask.setAttribute("class", "edit-task");
+          editTask.innerHTML = '<i class="fas fa-edit" aria-hidden="true"></i>';
+          const trashTask = document.createElement("p");
+          trashTask.setAttribute("class", "delete-task");
+          trashTask.innerHTML =
+            '<i class="fa fa-trash" aria-hidden="true"></i>';
 
           labelTask.appendChild(spanTask);
           labelTask.appendChild(titleTask);
@@ -66,19 +74,62 @@ const task = (() => {
           labelTask.appendChild(priorityTask);
           divTask.appendChild(checkboxTask);
           divTask.appendChild(labelTask);
+          divTask.appendChild(editTask);
           divTask.appendChild(trashTask);
           divTasks.appendChild(divTask);
           todoBody.appendChild(divTasks);
 
-          const form = document.querySelector('.pop-up-form');
-          form.style.display = 'none';
+          const form = document.querySelector(".pop-up-form");
+          form.style.display = "none";
+
+          
+
+           editTask.addEventListener("click", (e) => {
+             form.style.display = "block";
+             const titleTaskEdit = document.querySelector("#list-tilte")
+             titleTaskEdit.value = titleTask.textContent;
+             const descriptionTaskEdit = document.querySelector("#list-description");
+             descriptionTaskEdit.value = descriptionTask.textContent;
+             const priorityTaskEdit = document.querySelector(
+               ".priority-radio-button"
+             );
+             priorityTaskEdit.value = priorityTask.textContent;
+             const dateTaskEdit = document.querySelector("#list-date");
+             dateTaskEdit.value = dateTask.textContent;
+             
+            const obj = {title: titleTask.textContent, description: descriptionTask.textContent, date: dateTask.textContent, priority: priorityTask.textContent}
+            console.log(obj)  
+            const newArr = []
+            const entireList = lists.updateLocalStorage();
+            const keys = Object.keys(entireList);
+            console.log(keys)
+
+            Object.keys(entireList).forEach((key) => {
+              entireList[key].forEach((value) => {
+                newArr.push(value)
+              })
+            });
+            console.log(newArr)
+
+            // setTimeout(() => {
+            //     console.log(lists.updateLocalStorage());
+                
+               
+            //   }, 3000);
+          
+
+           });
+         
         }
       }
     }
   };
 
+    
+   
+
   const deleteTask = () => {
-    const removeTask = document.querySelectorAll('.delete-tast');
+    const removeTask = document.querySelectorAll('.delete-task');
 
     removeTask.forEach((button) => button.addEventListener('click', (e) => {
       const task = e.target.parentElement.parentElement.parentElement;
